@@ -13,12 +13,12 @@ jobs:
           --tag ticket_logging_app:${{ github.run_id }} \
           --tag ticket_logging_app:latest \
           --build-arg APP_VERSION=${VERSION} \
-          --build-arg DB_URL=${{ secrets.DB_URL }} \
-          --build-arg DB_USER=${{ secrets.DB_USER }} \
-          --build-arg DB_PASS=${{ secrets.DB_PASS }} \
+          --build-arg DB_URL=a \
+          --build-arg DB_USER=b \
+          --build-arg DB_PASS=c \
           --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
-          --build-arg SERVER_PORT=${{ secrets.SERVER_PORT }} \
-          --build-arg SMTP_HOST=${{ secrets.SMTP_HOST }} \
-          --build-arg SMTP_USER=${{ secrets.SMTP_USER }} \
-          --build-arg SMTP_PASS=${{ secrets.SMTP_PASS }} \
-          --build-arg SMTP_PORT=${{ secrets.SMTP_PORT }}
+          --build-arg SERVER_PORT=e \
+          --build-arg SMTP_HOST=f \
+          --build-arg SMTP_USER=g \
+          --build-arg SMTP_PASS=h \
+          --build-arg SMTP_PORT=i
