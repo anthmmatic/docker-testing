@@ -10,7 +10,7 @@ jobs:
         run: |
           docker build . \
           --file Dockerfile \
-          --tag ticket_logging_app:${VERSION} \
+          --tag ticket_logging_app:${{ github.run_id }} \
           --tag ticket_logging_app:latest \
           --build-arg APP_VERSION=${VERSION} \
           --build-arg DB_URL=${{ secrets.DB_URL }} \
