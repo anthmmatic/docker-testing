@@ -9,4 +9,16 @@ jobs:
       - name: Build Docker image
         run: |
           docker build . \
-          --build-arg APP_VERSION=VAL
+          --file Dockerfile \
+          --tag ticket_logging_app:${VERSION} \
+          --tag ticket_logging_app:latest \
+          --build-arg APP_VERSION=${VERSION} \
+          --build-arg DB_URL=${{ secrets.DB_URL }} \
+          --build-arg DB_USER=${{ secrets.DB_USER }} \
+          --build-arg DB_PASS=${{ secrets.DB_PASS }} \
+          --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
+          --build-arg SERVER_PORT=${{ secrets.SERVER_PORT }} \
+          --build-arg SMTP_HOST=${{ secrets.SMTP_HOST }} \
+          --build-arg SMTP_USER=${{ secrets.SMTP_USER }} \
+          --build-arg SMTP_PASS=${{ secrets.SMTP_PASS }} \
+          --build-arg SMTP_PORT=${{ secrets.SMTP_PORT }}
