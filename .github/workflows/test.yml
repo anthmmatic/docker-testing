@@ -5,4 +5,8 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: bazelbuild/setup-bazelisk@b39c379c82683a5f25d34f0d062761f62693e0b2
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: |
+          docker build . \
+          --build-arg APP_VERSION=VAL
