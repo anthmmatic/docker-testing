@@ -6,14 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate version tag
-        id: version
-        run: |
-          TIMESTAMP=$(date +%Y%m%d%H%M%S)
-          GIT_SHA_SHORT=$(git rev-parse --short HEAD)
-          echo "VERSION=1.0.${TIMESTAMP}-${GIT_SHA_SHORT}" >> $GITHUB_ENV
-          echo "SHORT_VERSION=1.0.${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
-          echo "Generated version: $VERSION"
       - name: Build Docker image
         run: |
           docker build . \
@@ -30,3 +22,5 @@ jobs:
           --build-arg SMTP_USER=g \
           --build-arg SMTP_PASS=h \
           --build-arg SMTP_PORT=i
+        env:
+          VERSION: 1.0.20250421193932-dce251c
