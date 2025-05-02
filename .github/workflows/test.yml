@@ -13,7 +13,7 @@ jobs:
           --tag ticket_logging_app:${{ github.run_id }} \
           --tag ticket_logging_app:latest \
           --build-arg APP_VERSION=${VERSION} \
-          --build-arg DB_URL=fyfhftfr.vomhugtf//hhdvu \
+          --build-arg DB_URL=b
           --build-arg DB_USER=b \
           --build-arg DB_PASS=c \
           --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
