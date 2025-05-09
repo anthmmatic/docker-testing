@@ -3,24 +3,4 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build Docker image
-        run: |
-          docker build . \
-          --file Dockerfile \
-          --tag ticket_logging_app:${VERSION} \
-          --tag ticket_logging_app:latest \
-          --build-arg APP_VERSION=${VERSION} \
-          --build-arg DB_URL=b \
-          --build-arg DB_USER=b \
-          --build-arg DB_PASS=c \
-          --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
-          --build-arg SERVER_PORT=e \
-          --build-arg SMTP_HOST=f \
-          --build-arg SMTP_USER=g \
-          --build-arg SMTP_PASS=h \
-          --build-arg SMTP_PORT=i
-        env:
-          VERSION: 1.0.20250421193932-dce251c
+    uses: anthmmatic/public-testbox/.github/workflows/scan.yml@main
