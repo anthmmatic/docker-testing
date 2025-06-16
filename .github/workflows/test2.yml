@@ -1,0 +1,6 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  trivy-scans:
+    uses: bio-boris/.github/.github/workflows/reusable_trivy-scans.yml@add-sbom
